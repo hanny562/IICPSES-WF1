@@ -24,6 +24,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <ApplicationInsightsResourceId>/subscriptions/d416e778-61e3-46c5-b960-e122e5dde21c/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/IICPSES-WF</ApplicationInsightsResourceId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.1.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.1.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.1.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.1.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.1.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.1.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
       <Private>True</Private>
@@ -67,6 +96,142 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Service References\Application Insights\ConnectedService.json" />
+    <Content Include="Site.Master" />
+    <Content Include="Assets\css\font-awesome.css.map" />
+    <Content Include="Assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="Assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="Assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Assets\fonts\FontAwesome.otf" />
+    <Content Include="Assets\fonts\Simple-Line-Icons.eot" />
+    <Content Include="Assets\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Assets\fonts\Simple-Line-Icons.woff" />
+    <Content Include="Assets\fonts\Simple-Line-Icons.woff2" />
+    <Content Include="Assets\scss\bootstrap_custom\_breadcrumb.scss" />
+    <Content Include="Assets\scss\bootstrap_custom\_buttons.scss" />
+    <Content Include="Assets\scss\bootstrap_custom\_card.scss" />
+    <Content Include="Assets\scss\bootstrap_custom\_dropdown.scss" />
+    <Content Include="Assets\scss\bootstrap_custom\_input-group.scss" />
+    <Content Include="Assets\scss\bootstrap_custom\_nav.scss" />
+    <Content Include="Assets\scss\bootstrap_custom\_navbar.scss" />
+    <Content Include="Assets\scss\bootstrap_custom\_progress.scss" />
+    <Content Include="Assets\scss\bootstrap_custom\_tables.scss" />
+    <Content Include="Assets\scss\bootstrap_custom\_tags.scss" />
+    <Content Include="Assets\scss\bootstrap_src\bootstrap-flex.scss" />
+    <Content Include="Assets\scss\bootstrap_src\bootstrap-grid.scss" />
+    <Content Include="Assets\scss\bootstrap_src\bootstrap-reboot.scss" />
+    <Content Include="Assets\scss\bootstrap_src\bootstrap.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_alert.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_background-variant.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_border-radius.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_breakpoints.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_buttons.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_cards.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_clearfix.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_float.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_forms.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_gradients.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_grid-framework.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_grid.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_hover.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_image.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_list-group.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_lists.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_nav-divider.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_navbar-align.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_pagination.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_progress.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_reset-filter.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_reset-text.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_resize.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_screen-reader.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_size.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_tab-focus.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_table-row.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_tag.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_text-emphasis.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_text-hide.scss" />
+    <Content Include="Assets\scss\bootstrap_src\mixins\_text-truncate.scss" />
+    <Content Include="Assets\scss\bootstrap_src\utilities\_align.scss" />
+    <Content Include="Assets\scss\bootstrap_src\utilities\_background.scss" />
+    <Content Include="Assets\scss\bootstrap_src\utilities\_borders.scss" />
+    <Content Include="Assets\scss\bootstrap_src\utilities\_clearfix.scss" />
+    <Content Include="Assets\scss\bootstrap_src\utilities\_display.scss" />
+    <Content Include="Assets\scss\bootstrap_src\utilities\_flex.scss" />
+    <Content Include="Assets\scss\bootstrap_src\utilities\_float.scss" />
+    <Content Include="Assets\scss\bootstrap_src\utilities\_screenreaders.scss" />
+    <Content Include="Assets\scss\bootstrap_src\utilities\_spacing.scss" />
+    <Content Include="Assets\scss\bootstrap_src\utilities\_text.scss" />
+    <Content Include="Assets\scss\bootstrap_src\utilities\_visibility.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_alert.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_animation.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_breadcrumb.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_button-group.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_buttons.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_card.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_carousel.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_close.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_code.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_custom-forms.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_custom.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_dropdown.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_forms.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_grid.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_images.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_input-group.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_jumbotron.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_list-group.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_media.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_mixins.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_modal.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_nav.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_navbar.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_normalize.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_pagination.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_popover.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_print.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_progress.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_reboot.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_responsive-embed.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_tables.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_tags.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_tooltip.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_type.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_utilities.scss" />
+    <Content Include="Assets\scss\bootstrap_src\_variables.scss" />
+    <Content Include="Assets\scss\core\navigation\_disabled.scss" />
+    <Content Include="Assets\scss\core\navigation\_sidebar.scss" />
+    <Content Include="Assets\scss\core\navigation\_top.scss" />
+    <Content Include="Assets\scss\core\_animate.scss" />
+    <Content Include="Assets\scss\core\_aside.scss" />
+    <Content Include="Assets\scss\core\_avatars.scss" />
+    <Content Include="Assets\scss\core\_breadcrumb-menu.scss" />
+    <Content Include="Assets\scss\core\_buttons.scss" />
+    <Content Include="Assets\scss\core\_callout.scss" />
+    <Content Include="Assets\scss\core\_charts.scss" />
+    <Content Include="Assets\scss\core\_footer.scss" />
+    <Content Include="Assets\scss\core\_grid.scss" />
+    <Content Include="Assets\scss\core\_layout.scss" />
+    <Content Include="Assets\scss\core\_loading.scss" />
+    <Content Include="Assets\scss\core\_mixins.scss" />
+    <Content Include="Assets\scss\core\_mobile.scss" />
+    <Content Include="Assets\scss\core\_navigation.scss" />
+    <Content Include="Assets\scss\core\_others.scss" />
+    <Content Include="Assets\scss\core\_switches.scss" />
+    <Content Include="Assets\scss\core\_temp.scss" />
+    <Content Include="Assets\scss\core\_typography.scss" />
+    <Content Include="Assets\scss\core\_utilities-border.scss" />
+    <Content Include="Assets\scss\core\_widgets.scss" />
+    <Content Include="Assets\scss\style.scss" />
+    <Content Include="Assets\scss\vendors\chart.js\chart.scss" />
+    <Content Include="Assets\scss\vendors\_vendors.scss" />
+    <Content Include="Assets\scss\_bootstrap-variables.scss" />
+    <Content Include="Assets\scss\_custom-variables.scss" />
+    <Content Include="Assets\scss\_custom.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -75,10 +240,47 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\font-awesome.css" />
+    <Content Include="Assets\css\font-awesome.min.css" />
+    <Content Include="Assets\css\simple-line-icons.css" />
+    <Content Include="Assets\css\style.css" />
+    <Content Include="Assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="Assets\fonts\Simple-Line-Icons.svg" />
+    <Content Include="Assets\img\favicon.png" />
+    <Content Include="Assets\img\logo.png" />
+    <Content Include="Assets\js\app.js" />
+    <Content Include="Assets\js\views\charts.js" />
+    <Content Include="Assets\js\views\main.js" />
+    <Content Include="Assets\js\views\widgets.js" />
+    <Content Include="ControlPanel\Index.aspx" />
+    <Content Include="scripts\ai.0.22.19-build00125.js" />
+    <Content Include="scripts\ai.0.22.19-build00125.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlPanel\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlPanel\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ControlPanel\Questions\" />
+    <Folder Include="ControlPanel\Survey\" />
+    <Folder Include="Survey\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

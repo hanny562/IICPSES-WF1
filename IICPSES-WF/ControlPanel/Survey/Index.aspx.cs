@@ -12,6 +12,14 @@ namespace IICPSES_WF.ControlPanel.Survey
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if(!IsPostBack)
+            {
+                BindGridView_Surveys();
+            }
+        }
+
+        private void BindGridView_Surveys()
+        {
 
         }
 
@@ -58,7 +66,7 @@ namespace IICPSES_WF.ControlPanel.Survey
                 }
             }
 
-            PrintMessage("Survey successfully created.", "Survey was successfully created with secret code: " + secretCodeText, "alert alert-success alert-dismissible fade in");
+            PrintMessage("Survey successfully created.", "Survey was successfully created with secret code: <strong>" + secretCodeText + "</strong>.", "alert alert-success alert-dismissible fade in");
         }
 
         // Helper function

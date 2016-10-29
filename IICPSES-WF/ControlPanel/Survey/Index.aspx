@@ -18,48 +18,34 @@
                 <div class="card-block">
                     <h3>View Survey</h3>
                     <p class="text-muted">View list of surveys, and view survey information individually.</p>
-                    <asp:GridView runat="server" ID="gvSurveys" CssClass="table table-bordered" EmptyDataText="There are no survey profile at the moment."></asp:GridView>
+                    <p class="text-muted">Click on each <strong>secret code</strong> to view its information in detail.</p>
 
-                    <h3>Create Survey</h3>
-                    <p class="text-muted">Create a survey.</p>
-                    <div class="form-group">
-                        <label>School Code</label>
-                        <asp:TextBox runat="server" ID="txtSchoolCode" CssClass="form-control" placeholder="School code" />
-                    </div>
+                    <asp:GridView runat="server" ID="gvSurveys" CssClass="table table-bordered" EmptyDataText="There are no survey profile at the moment." AutoGenerateColumns="false">
+                        <Columns>
+                            <asp:TemplateField HeaderText="No.">
+                                <ItemTemplate>
+                                    <%# Container.DataItemIndex + 1 %>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Secret Code">
+                                <ItemTemplate>
+                                    <asp:LinkButton ID="lnkViewProfile" runat="server" Text='<%# Bind("SecretCodeText") %>' CommandArgument='<%# Bind("SecretCodeText") %>' OnClick="lnkViewProfile_Click"></asp:LinkButton>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:BoundField DataField="SchoolCode" HeaderText="School Code" />
+                            <asp:BoundField DataField="ProgramCode" HeaderText="Program Code" />
+                            <asp:BoundField DataField="SubjectCode" HeaderText="Subject Code" />
+                            <asp:BoundField DataField="LecturerName" HeaderText="Lecturer Name" />
+                            <asp:TemplateField HeaderText="Survey Created Timestamp">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblTimestamp" runat="server" Text='<%# Bind("CreatedDateTime") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                        </Columns>
+                    </asp:GridView>
 
-                    <div class="form-group">
-                        <label>School Name</label>
-                        <asp:TextBox runat="server" ID="txtSchoolName" CssClass="form-control" placeholder="School name" />
-                    </div>
-
-                    <div class="form-group">
-                        <label>Program Code</label>
-                        <asp:TextBox runat="server" ID="txtProgramCode" CssClass="form-control" placeholder="Program code" />
-                    </div>
-
-                    <div class="form-group">
-                        <label>Program Name</label>
-                        <asp:TextBox runat="server" ID="txtProgramName" CssClass="form-control" placeholder="Program name" />
-                    </div>
-
-                    <div class="form-group">
-                        <label>Subject Code</label>
-                        <asp:TextBox runat="server" ID="txtSubjectCode" CssClass="form-control" placeholder="Subject code" />
-                    </div>
-
-                    <div class="form-group">
-                        <label>Subject Name</label>
-                        <asp:TextBox runat="server" ID="txtSubjectName" CssClass="form-control" placeholder="Subject name" />
-                    </div>
-
-                    <div class="form-group">
-                        <label>Lecturer Name</label>
-                        <asp:TextBox runat="server" ID="txtLecturerName" CssClass="form-control" placeholder="Lecturer name" />
-                    </div>
-
-                    <div class="form-group">
-                        <asp:Button Text="Submit" runat="server" ID="btnSubmit" CssClass="btn btn-primary" OnClick="btnSubmit_Click" />
-                    </div>
+                    <a href="Create.aspx" class="btn btn-primary">Create Profile Survey</a>
+                    
                 </div>
             </div>
         </div>

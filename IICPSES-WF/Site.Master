@@ -48,7 +48,12 @@
                 </li>
                 <li class="nav-title">Components</li>
                 <li class="nav-item">
-                    <a class="nav-link nav-dropdown-toggle" href="/ControlPanel/Survey/Index.aspx"><i class="icon-puzzle"></i>Survey</a>
+                    <a class="nav-link" href="/ControlPanel/Questions/Index.aspx"><i class="icon-question"></i>Question</a>
+                    <a class="nav-link" href="/ControlPanel/Survey/Index.aspx"><i class="icon-puzzle"></i>Survey Profile</a>
+                </li>
+                <li class="nav-title">Report</li>
+                <li class="nav-item">
+                    <a class="nav-link nav-dropdown-toggle" href="/ControlPanel/Survey/Index.aspx"><i class="icon-notebook"></i>Report</a>
                 </li>
 
             </ul>

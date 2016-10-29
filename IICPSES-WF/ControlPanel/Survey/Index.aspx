@@ -20,7 +20,8 @@
                     <p class="text-muted">View list of surveys, and view survey information individually.</p>
                     <p class="text-muted">Click on each <strong>secret code</strong> to view its information in detail.</p>
 
-                    <asp:GridView runat="server" ID="gvSurveys" CssClass="table table-bordered" EmptyDataText="There are no survey profile at the moment." AutoGenerateColumns="false">
+                    <asp:GridView runat="server" ID="gvSurveys" CssClass="table table-bordered" EmptyDataText="There are no survey profile at the moment." AutoGenerateColumns="false"
+                        OnRowDataBound="gvSurveys_RowDataBound">
                         <Columns>
                             <asp:TemplateField HeaderText="No.">
                                 <ItemTemplate>
@@ -39,6 +40,11 @@
                             <asp:TemplateField HeaderText="Survey Created Timestamp">
                                 <ItemTemplate>
                                     <asp:Label ID="lblTimestamp" runat="server" Text='<%# Bind("CreatedDateTime") %>'></asp:Label>
+                                </ItemTemplate>
+                            </asp:TemplateField>
+                            <asp:TemplateField HeaderText="Survey Active Status">
+                                <ItemTemplate>
+                                    <asp:Label ID="lblStatus" runat="server" Text='<%# Bind("IsExpired") %>'></asp:Label>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

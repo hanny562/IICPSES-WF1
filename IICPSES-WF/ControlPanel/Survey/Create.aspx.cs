@@ -37,7 +37,7 @@ namespace IICPSES_WF.ControlPanel.Survey
         // Submit survey
         private void SubmitSurvey(string schoolCode, string schoolName, string programCode, string programName, string subjectCode, string subjectName, string lecturerName, string secretCodeText)
         {
-            string sql = "insert into [dbo].[SurveyProfile] values (@sccode, @scname, @prcode, @prname, @sbcode, @sbname, @lcname, @secret, @dt)";
+            string sql = "insert into [dbo].[SurveyProfile] values (@sccode, @scname, @prcode, @prname, @sbcode, @sbname, @lcname, @secret, @dt, @expired)";
 
             using (var conn = new SqlConnection(Shared.GetConnectionString()))
             {
@@ -54,6 +54,7 @@ namespace IICPSES_WF.ControlPanel.Survey
                     cmd.Parameters.AddWithValue("@lcname", lecturerName);
                     cmd.Parameters.AddWithValue("@secret", secretCodeText);
                     cmd.Parameters.AddWithValue("@dt", DateTime.Now);
+                    cmd.Parameters.AddWithValue("@expired", false);
 
                     cmd.ExecuteNonQuery();
                 }

@@ -35,6 +35,7 @@ namespace IICPSES_WF.ControlPanel.Survey
         private void BindTable(string code)
         {
             string sql = "select * from [dbo].[SurveyProfile] where SecretCodeText = @code";
+            bool isExpired = false;
             using (var conn = new SqlConnection(Shared.GetConnectionString()))
             {
                 conn.Open();
@@ -58,9 +59,26 @@ namespace IICPSES_WF.ControlPanel.Survey
                             lblSchoolName.Text = rdr["SchoolName"].ToString();
                             lblSubjectCode.Text = rdr["SubjectCode"].ToString();
                             lblSubjectName.Text = rdr["SubjectName"].ToString();
+
+                            isExpired = Convert.ToBoolean(rdr["IsExpired"]);
+                        }
+                        else
+                        {
+                            PrintMessage("Survey profile not found.", "The specified secret code does not match any survey profile.", "alert alert-warning alert-dismissable fade in");
                         }
                     }
                 }
+            }
+
+            if(isExpired)
+            {
+                lblStatus.CssClass = "text-danger";
+                lblStatus.Text = "Expired";
+            }
+            else
+            {
+                lblStatus.CssClass = "text-success";
+                lblStatus.Text = "Active";
             }
         }
 
@@ -101,6 +119,56 @@ namespace IICPSES_WF.ControlPanel.Survey
                 "<button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>" +
                 "<strong>" + strongMsg + "</strong><p>" + msg + "</p>" +
                 "</div>"));
+        }
+
+        private void ChangeStatus(string status)
+        {
+            try
+            {
+                bool isExpired = false;
+
+                switch (status)
+                {
+                    case "Active":
+                        isExpired = false;
+                        break;
+
+                    case "Expired":
+                        isExpired = true;
+                        break;
+                }
+
+                string sql = "update [dbo].[SurveyProfile] set IsExpired=@expired where SecretCodeText=@code";
+                using (var conn = new SqlConnection(Shared.GetConnectionString()))
+                {
+                    conn.Open();
+
+                    using (var cmd = new SqlCommand(sql, conn))
+                    {
+                        cmd.Parameters.AddWithValue("@expired", isExpired);
+                        cmd.Parameters.AddWithValue("@code", lblSecretCodeText.Text);
+
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
+                BindTable(lblSecretCodeText.Text);
+
+                PrintMessage("Survey profile status changed successfully.", "The survey profile status has been changed successfully.", "alert alert-success alert-dismissable fade in");
+            }
+            catch (Exception ex)
+            {
+                PrintMessage("Exception occurred while changing the survey profile status.", ex.Message, "alert alert-danger alert-dismissable fade in");
+            }
+        }
+
+        protected void ddlStatus_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var ddl = sender as DropDownList;
+            if(!string.IsNullOrWhiteSpace(ddl.SelectedItem.Text))
+            {
+                ChangeStatus(ddl.SelectedItem.Text);
+            }
         }
     }
 }

@@ -57,5 +57,26 @@ namespace IICPSES_WF.ControlPanel.Survey
 
             Response.Redirect("View.aspx?code=" + secret);
         }
+
+        protected void gvSurveys_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if(e.Row.RowType == DataControlRowType.DataRow)
+            {
+                var lbl = e.Row.FindControl("lblStatus") as Label;
+
+                switch(lbl.Text)
+                {
+                    case "False":
+                        lbl.Text = "Active";
+                        lbl.CssClass = "text-success";
+                        break;
+
+                    case "True":
+                        lbl.Text = "Expired";
+                        lbl.CssClass = "text-danger";
+                        break;
+                }
+            }
+        }
     }
 }

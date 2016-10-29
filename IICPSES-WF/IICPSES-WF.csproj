@@ -95,11 +95,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\css\bootstrap.v4a5.min.css" />
+    <Content Include="Assets\css\bootstrap.yeti.min.css" />
+    <Content Include="Assets\css\common-master-style.css" />
+    <Content Include="Assets\css\sticky-footer-navbar.css" />
     <Content Include="ControlPanel\Questions\Index.aspx" />
     <Content Include="ControlPanel\Report\Index.aspx" />
     <Content Include="ControlPanel\Survey\Create.aspx" />
     <Content Include="ControlPanel\Survey\Edit.aspx" />
     <Content Include="ControlPanel\Survey\View.aspx" />
+    <Content Include="Index.aspx" />
     <Content Include="packages.config" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -238,6 +243,7 @@
     <Content Include="Assets\scss\_custom-variables.scss" />
     <Content Include="Assets\scss\_custom.scss" />
     <Content Include="Assets\js\jquery-ui-1.12.1\package.json" />
+    <Content Include="Common.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -331,9 +337,17 @@
     <Content Include="Login.aspx" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
+    <Content Include="Survey\Index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common.Master.cs">
+      <DependentUpon>Common.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Common.Master.designer.cs">
+      <DependentUpon>Common.Master</DependentUpon>
+    </Compile>
     <Compile Include="ControlPanel\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -383,6 +397,13 @@
     <Compile Include="ControlPanel\Survey\View.aspx.designer.cs">
       <DependentUpon>View.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -399,6 +420,13 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
+    <Compile Include="Survey\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Survey\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -406,7 +434,6 @@
   <ItemGroup>
     <Folder Include="Error\" />
     <Folder Include="SQL Scripts\" />
-    <Folder Include="Survey\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

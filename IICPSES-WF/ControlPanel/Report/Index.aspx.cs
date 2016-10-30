@@ -13,5 +13,10 @@ namespace IICPSES_WF.ControlPanel.Report
         {
 
         }
+
+        protected void btnView_OnClick(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

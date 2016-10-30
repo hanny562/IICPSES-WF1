@@ -2,6 +2,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="cphBreadcrumb" runat="server">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item">Question</li>
+    <li class="breadcrumb-item active">Edit Question</li>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="cphMainContent" runat="server">
     <div class="row">

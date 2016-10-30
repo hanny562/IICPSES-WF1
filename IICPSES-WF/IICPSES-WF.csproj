@@ -339,6 +339,7 @@
     <Content Include="Login.aspx" />
     <Content Include="scripts\ai.0.22.19-build00125.js" />
     <Content Include="scripts\ai.0.22.19-build00125.min.js" />
+    <Content Include="SQL Scripts\script_161031-0113.sql" />
     <Content Include="Survey\Index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -449,7 +450,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Error\" />
-    <Folder Include="SQL Scripts\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

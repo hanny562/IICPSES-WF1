@@ -23,11 +23,12 @@
                     <asp:GridView runat="server" ID="gvSurveys" CssClass="table table-bordered" EmptyDataText="There are no survey profile at the moment." AutoGenerateColumns="false"
                         OnRowDataBound="gvSurveys_RowDataBound">
                         <Columns>
-                            <asp:TemplateField HeaderText="No.">
+                            <asp:TemplateField HeaderText="No." >
                                 <ItemTemplate>
                                     <%# Container.DataItemIndex + 1 %>
                                 </ItemTemplate>
                             </asp:TemplateField>
+                            <asp:BoundField DataField="SemesterName" HeaderText="Semester Name"></asp:BoundField>
                             <asp:TemplateField HeaderText="Secret Code">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkViewProfile" runat="server" Text='<%# Bind("SecretCodeText") %>' CommandArgument='<%# Bind("SecretCodeText") %>' OnClick="lnkViewProfile_Click"></asp:LinkButton>
@@ -57,5 +58,10 @@
         </div>
     </div>
 
-    
+    <script>
+        $(document)
+            .ready(function() {
+                $("#<%= gvSurveys.ClientID %>").DataTable();
+            });
+    </script>
 </asp:Content>

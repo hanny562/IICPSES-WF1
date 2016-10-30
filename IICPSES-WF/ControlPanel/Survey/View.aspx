@@ -32,15 +32,17 @@
                                         <asp:ListItem Value="0" Text="Expired"></asp:ListItem>
                                     </asp:DropDownList>
                                 </div>
-
-
                             </td>
-
                         </tr>
                         <tr>
                             <td>ID</td>
                             <td>
                                 <asp:Label ID="lblID" runat="server" Font-Bold="true" /></td>
+                        </tr>
+                        <tr>
+                            <td>Semester Name</td>
+                            <td>
+                                <asp:Label ID="lblSemesterName" runat="server" Font-Bold="true" /></td>
                         </tr>
                         <tr>
                             <td>School Code</td>

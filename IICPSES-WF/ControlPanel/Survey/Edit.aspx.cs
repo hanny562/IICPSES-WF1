@@ -56,6 +56,7 @@ namespace IICPSES_WF.ControlPanel.Survey
                             txtSubjectName.Text = rdr["SubjectName"].ToString();
                             lblSecretCodeText.Text = rdr["SecretCodeText"].ToString();
                             lblCreatedDateTime.Text = rdr["CreatedDateTime"].ToString();
+                            lblSemesterName.Text = rdr["SemesterName"].ToString();
                         }
                     }
                 }

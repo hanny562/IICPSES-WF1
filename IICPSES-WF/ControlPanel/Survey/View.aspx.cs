@@ -59,6 +59,7 @@ namespace IICPSES_WF.ControlPanel.Survey
                             lblSchoolName.Text = rdr["SchoolName"].ToString();
                             lblSubjectCode.Text = rdr["SubjectCode"].ToString();
                             lblSubjectName.Text = rdr["SubjectName"].ToString();
+                            lblSemesterName.Text = rdr["SemesterName"].ToString();
 
                             isExpired = Convert.ToBoolean(rdr["IsExpired"]);
                         }

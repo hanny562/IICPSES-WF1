@@ -22,6 +22,15 @@ namespace IICPSES_WF.ControlPanel.Survey {
         protected global::System.Web.UI.WebControls.Panel pnlStatus;
         
         /// <summary>
+        /// txtSemesterName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSemesterName;
+        
+        /// <summary>
         /// txtSchoolCode control.
         /// </summary>
         /// <remarks>

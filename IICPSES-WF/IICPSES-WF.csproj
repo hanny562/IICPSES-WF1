@@ -99,6 +99,8 @@
     <Content Include="Assets\css\bootstrap.yeti.min.css" />
     <Content Include="Assets\css\common-master-style.css" />
     <Content Include="Assets\css\sticky-footer-navbar.css" />
+    <Content Include="ControlPanel\Questions\Create.aspx" />
+    <Content Include="ControlPanel\Questions\Edit.aspx" />
     <Content Include="ControlPanel\Questions\Index.aspx" />
     <Content Include="ControlPanel\Report\Index.aspx" />
     <Content Include="ControlPanel\Survey\Create.aspx" />
@@ -354,6 +356,20 @@
     </Compile>
     <Compile Include="ControlPanel\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ControlPanel\Questions\Create.aspx.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlPanel\Questions\Create.aspx.designer.cs">
+      <DependentUpon>Create.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ControlPanel\Questions\Edit.aspx.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ControlPanel\Questions\Edit.aspx.designer.cs">
+      <DependentUpon>Edit.aspx</DependentUpon>
     </Compile>
     <Compile Include="ControlPanel\Questions\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>

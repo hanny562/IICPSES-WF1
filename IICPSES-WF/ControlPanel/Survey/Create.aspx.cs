@@ -18,14 +18,14 @@ namespace IICPSES_WF.ControlPanel.Survey
         {
             try
             {
-                if (string.IsNullOrWhiteSpace(txtLecturerName.Text) || string.IsNullOrWhiteSpace(txtProgramCode.Text) || string.IsNullOrWhiteSpace(txtProgramName.Text) || string.IsNullOrWhiteSpace(txtSchoolCode.Text) || string.IsNullOrWhiteSpace(txtSchoolName.Text) || string.IsNullOrWhiteSpace(txtSubjectCode.Text) || string.IsNullOrWhiteSpace(txtSubjectName.Text))
+                if (string.IsNullOrWhiteSpace(txtSemesterName.Text) || string.IsNullOrWhiteSpace(txtLecturerName.Text) || string.IsNullOrWhiteSpace(txtProgramCode.Text) || string.IsNullOrWhiteSpace(txtProgramName.Text) || string.IsNullOrWhiteSpace(txtSchoolCode.Text) || string.IsNullOrWhiteSpace(txtSchoolName.Text) || string.IsNullOrWhiteSpace(txtSubjectCode.Text) || string.IsNullOrWhiteSpace(txtSubjectName.Text))
                 {
                     PrintMessage("All fields must be filled.", "Please fill in all the details.", "alert alert-warning alert-dismissable fade in");
                     return;
                 }
 
                 string secretCode = GenerateSecretCode();
-                SubmitSurvey(txtSchoolCode.Text, txtSchoolName.Text, txtProgramCode.Text, txtProgramName.Text, txtSubjectCode.Text, txtSubjectName.Text, txtLecturerName.Text, secretCode);
+                SubmitSurvey(txtSemesterName.Text, txtSchoolCode.Text, txtSchoolName.Text, txtProgramCode.Text, txtProgramName.Text, txtSubjectCode.Text, txtSubjectName.Text, txtLecturerName.Text, secretCode);
                 Response.Redirect("Index.aspx");
             }
             catch (Exception ex)
@@ -35,9 +35,9 @@ namespace IICPSES_WF.ControlPanel.Survey
         }
 
         // Submit survey
-        private void SubmitSurvey(string schoolCode, string schoolName, string programCode, string programName, string subjectCode, string subjectName, string lecturerName, string secretCodeText)
+        private void SubmitSurvey(string semesterName, string schoolCode, string schoolName, string programCode, string programName, string subjectCode, string subjectName, string lecturerName, string secretCodeText)
         {
-            string sql = "insert into [dbo].[SurveyProfile] values (@sccode, @scname, @prcode, @prname, @sbcode, @sbname, @lcname, @secret, @dt, @expired)";
+            string sql = "insert into [dbo].[SurveyProfile] values (@semName, @sccode, @scname, @prcode, @prname, @sbcode, @sbname, @lcname, @secret, @dt, @expired)";
 
             using (var conn = new SqlConnection(Shared.GetConnectionString()))
             {
@@ -45,6 +45,7 @@ namespace IICPSES_WF.ControlPanel.Survey
 
                 using (var cmd = new SqlCommand(sql, conn))
                 {
+                    cmd.Parameters.AddWithValue("@semName", semesterName);
                     cmd.Parameters.AddWithValue("@sccode", schoolCode);
                     cmd.Parameters.AddWithValue("@scname", schoolName);
                     cmd.Parameters.AddWithValue("@prcode", programCode);

@@ -18,6 +18,12 @@
                 <div class="card-block">
                     <a href="Index.aspx" class="btn btn-primary">&laquo; Return to Survey</a>
                     <p class="text-muted">Create a survey.</p>
+                    
+                    <div class="form-group">
+                        <label>School Code</label>
+                        <asp:TextBox runat="server" ID="txtSemesterName" CssClass="form-control" placeholder="Semester name" />
+                    </div>
+
                     <div class="form-group">
                         <label>School Code</label>
                         <asp:TextBox runat="server" ID="txtSchoolCode" CssClass="form-control" placeholder="School code" />

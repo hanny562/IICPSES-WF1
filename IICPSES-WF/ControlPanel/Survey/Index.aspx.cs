@@ -31,6 +31,8 @@ namespace IICPSES_WF.ControlPanel.Survey
                     {
                         gvSurveys.DataSource = cmd.ExecuteReader();
                         gvSurveys.DataBind();
+
+                        gvSurveys.HeaderRow.TableSection = TableRowSection.TableHeader;
                     }
                 }
 

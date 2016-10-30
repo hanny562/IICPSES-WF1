@@ -23,6 +23,11 @@
                             <asp:Label ID="lblSecretCodeText" runat="server" Font-Bold="true" /></p>
                     </div>
                     <div class="form-group">
+                        <label>Semester Profile</label>
+                        <p>
+                            <asp:Label ID="lblSemesterName" runat="server" Font-Bold="true" /></p>
+                    </div>
+                    <div class="form-group">
                         <label>Created Timestamp</label>
                         <p>
                             <asp:Label ID="lblCreatedDateTime" runat="server" Font-Bold="true" /></p>
